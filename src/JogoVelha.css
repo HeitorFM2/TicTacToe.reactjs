@@ -1,0 +1,135 @@
+:root{
+    --O-color: #0088f8;
+    --X-color: #f44336;
+    --E-color: #777;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    font-family: cursive;
+    height: 100vh;
+    background-color: rgb(179, 179, 179);
+}
+
+.title{
+    text-align: center;
+    font-size: 3rem;
+    color: rgb(59, 55, 55);
+    margin-bottom: 2rem;
+}
+
+.board{
+    display: grid;
+    grid-template-columns: repeat(3,240px);
+    grid-template-rows: repeat(3,240px);
+    gap: 1rem;
+}
+
+.cell {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00000066;
+
+    cursor: pointer;
+}
+
+.cell:not(.O):not(.X):hover{
+    box-shadow: 10px 30px 35px -10px rgb(133, 132, 132);
+}
+
+.cell.O, .cell.X, .game-over .cell{
+    cursor: not-allowed;
+}
+
+.cell.O{
+    color: var(--O-color);
+}
+
+.cell.X{
+    color: var(--X-color);
+}
+
+.board.game-over{
+    opacity: 0.8;
+}
+
+footer{
+    text-align: center;
+}
+
+/* From uiverse.io by @alexmaracinaru */
+.cta {
+    position: relative;
+    margin: auto;
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+   }
+   
+   .cta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50px;
+    background: #b1dae7;
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+   }
+   
+   .cta span {
+    position: relative;
+    font-family: cursive;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #234567;
+   }
+   
+   .cta svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #234567;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+   }
+   
+   .cta:hover:before {
+    width: 100%;
+    background: #b1dae7;
+   }
+   
+   .cta:hover svg {
+    transform: translateX(0);
+   }
+   
+   .cta:active {
+    transform: scale(0.95);
+   }
+
+.winner-button{
+    margin:2rem;
+}
+
