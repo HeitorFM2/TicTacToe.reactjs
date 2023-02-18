@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import './JogoVelha.css';
+import RotateInDownLeft from './RotateInDownLeft'
 
 function App (){
 
@@ -81,23 +82,24 @@ function App (){
         setWinner("X");
       } 
     });
-
-    checkDraw();
   }
 
   // Verificando empate
-  const checkDraw = () => {
-    if(board.every(item => item !== "")){
-      Swal.fire(
-        'Empatou!',
-        '',
-        'error'
-      )
-      setWinner("E");
-    } 
+  function checkDraw() {
+    if(winner === null){
+      if(board.every(item => item !== "")){
+        Swal.fire(
+          'Empatou!',
+          '',
+          'error'
+        )
+        setWinner("E");
+      } 
+    }
   }
 
   // useEffect = onLoad
+  checkDraw();
   useEffect(checkWinner, [board]);
 
   const resetGame = () => {
@@ -108,7 +110,13 @@ function App (){
     return(
       <div>
         <main>
+        <RotateInDownLeft duration="0.8s" delay="0.2s">
+
             <h1 className='title'>Jogo da Velha</h1>
+            <div className='jogadorVez'>Vez do jogador: {currentPlayer}</div>
+
+        </RotateInDownLeft>
+
 
             <div className={`board ${winner ? "game-over" : ""}`}>
               {board.map((item, index) => (

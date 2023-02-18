@@ -5,8 +5,6 @@ import './JogoVelha.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <JogoVelha />
-  </React.StrictMode>
 );
 
